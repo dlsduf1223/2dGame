@@ -13,21 +13,29 @@ var dino = {
   draw() {
     ctx.fillStyle = "green";
     ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(img2, this.x - 20, this.y - 20, 80, 80);
   },
 };
+
+var img1 = new Image();
+img1.src = "cactus.png";
+
+var img2 = new Image();
+img2.src = "dinosaur.png";
 
 //------------------------------------------이제 장애물들을 만들어야하는데, 장애물은 개별로 width, height가 다를 수도 있기때문에 비슷한 Object가 많이 생성될것같아.
 
 class Cactus {
   constructor() {
     this.x = 800;
-    this.y = 310;
-    this.width = 40;
-    this.height = 40;
+    this.y = 290;
+    this.width = 20;
+    this.height = 60;
   }
   draw() {
     ctx.fillStyle = "red";
     ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(img1, this.x - 10, this.y, 40, 60);
   }
 }
 
@@ -76,7 +84,7 @@ function 프레임마다실행() {
       점프카운트 = 0;
     }
   }
-  if (점프timer > 15) {
+  if (점프timer > 20) {
     점프중 = false;
     점프timer = 0;
   }
@@ -110,11 +118,12 @@ function 충돌하냐(dino, cactus) {
   }
 }
 
-// 2단점프
-// 자동 발사?
-// 체력게이지
-// 스킬 (시간느리게, 장애물파괴, 무적?, 진화, 동료, 힐, )
+// 캐릭터 선택?
+// n단점프(완)
+// 자동 발사? --
+// 체력게이지 --
+// 스킬 (시간느리게 --,  장애물파괴-- , 무적? --, 진화, 소환, 힐, 땅파기, )
 // 코옵?
-// 상하단 장애물
-// 보스
+// 상하단 장애물 --
+// 보스 --
 // 레벨업 등등
